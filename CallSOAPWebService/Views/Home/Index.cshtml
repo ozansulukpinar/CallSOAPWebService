@@ -1,0 +1,42 @@
+﻿@model CallSOAPWebService.Models.ServiceViewModel
+@{
+    ViewData["Title"] = "Call SOAP Web Service";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/style.css"/>
+</head>
+
+<body>
+        <form method="post" asp-controller="Home" asp-action="Index">
+        <div class="container">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Your name is </label>
+            </div>
+            &nbsp;&nbsp;
+            <div class="form-group">
+                <input type="text" asp-for="Name" class="form-control">
+            </div>
+            &nbsp;&nbsp;
+            <div class="form-group">
+                <input type="submit" class="btn btn-danger" value="Say Hello to Service!">
+            </div>
+        </div>
+        </form>
+        <div class="message">
+            <p>
+                @ViewData["Message"]
+            </p>
+        </div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
+</body>
+
+</html>
